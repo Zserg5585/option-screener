@@ -1,12 +1,14 @@
-# Option Screener Backend
+# option-screener (backend)
 
-Backend API for crypto options / futures screening.
+Small Node.js / Express backend for an Option Screener project.
 
-## Stack
-- Node.js
-- Express
-- PM2
-- Binance API
+## What it does
+- Runs an HTTP API (Express)
+- Public health endpoint
+- Protected endpoints via `x-api-key`
+- Fetches Binance Futures public data (time / exchangeInfo)
+- Basic safety: input validation, error handling
+- Can be run via PM2
 
 ## API
 
@@ -17,13 +19,16 @@ Backend API for crypto options / futures screening.
 - GET /binance-time
 - GET /exchange-info
 
-## Auth
-All protected endpoints require header:
+## Requirements
+- Node.js 20+
+- npm
 
-x-api-key: YOUR_API_KEY
+## Setup
+Create `.env` (DO NOT commit it):
 
-## Run
-node index.js
+PORT=8080  
+API_KEY=change_me_to_long_random_string
 
-## Process manager
-pm2 start index.js --name options-backend
+Install and run:
+npm install  
+npm start
